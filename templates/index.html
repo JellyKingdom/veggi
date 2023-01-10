@@ -187,6 +187,7 @@
                 url: '/veggie',
                 data: {url_give:url, comment_give:comment, title_give:title, likes_give:likes},
                 success: function (response) {
+
                     alert(response['msg'])
                     window.location.reload()
                 }
