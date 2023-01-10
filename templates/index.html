@@ -58,7 +58,14 @@
             color: gray;
         }
 
-        .mycards {
+        .top1cards {
+            margin: 100px auto 0px auto;
+            width: 50%;
+            height: 50%;
+            max-width: 1200px;
+        }
+
+        .othercards {
             margin: 20px auto 0px auto;
             width: 95%;
             max-width: 1200px;
@@ -92,32 +99,77 @@
             listing();
         });
 
+        function sorting() {
+            let tmp = -1;
+            let index = 0;
+            $.ajax({
+                type: 'GET',
+                url: '/veggie',
+                data: {},
+                async:false,
+                success: function (response) {
+                    let rows = response['veggie']
+                    for (let i = 0; i < rows.length; i++) {
+                        let likes = rows[i]['likes']
+                        if (likes > tmp) {
+                            tmp = likes
+                            index = i
+                        }
+                    }
+
+                }
+            })
+            console.log(index);
+            return index
+        }
+
         function listing() {
+            let tmp;
             $.ajax({
                 type: 'GET',
                 url: '/veggie',
                 data: {},
                 success: function (response) {
                     let rows = response['veggie']
-                    for(let i = 0; i < rows.length; i++){
+                    for (let i = 0; i < rows.length; i++) {
                         let comment = rows[i]['comment']
                         let title = rows[i]['title']
                         let image = rows[i]['image']
+                        let likes = rows[i]['likes']
+                        tmp = sorting();
 
-
-                        let temp_html = `<div class="col">
+                        if(tmp== i)
+                        {
+                            let temp_html2 = `<div class="col">
                                             <div class="card h-100">
                                                 <img src="${image}"
                                                      class="card-img-top">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${title}</h5>
                                                     <p class="mycomment">${comment}</p>
+                                                    <p class="mylikes">${likes}</p>
+                                                </div>
+                                            </div>
+                                        </div>`
+                            $('#cards-box2').append(temp_html2)
+
+                        }
+
+                        else {
+                            let temp_html = `<div class="col">
+                                            <div class="card h-100">
+                                                <img src="${image}"
+                                                     class="card-img-top">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${title}</h5>
+                                                    <p class="mycomment">${comment}</p>
+                                                    <p class="mylikes">${likes}</p>
                                                 </div>
                                             </div>
                                         </div>`
 
-
-                        $('#cards-box').append(temp_html)
+                            $('#cards-box').append(temp_html)
+                        }
                     }
                 }
             })
@@ -126,13 +178,16 @@
         function posting() {
             let url = $('#url').val()
             let comment = $('#comment').val()
+            let title = $('#title').val()
+            let likes = $('#likes').val()
 
 
             $.ajax({
                 type: 'POST',
                 url: '/veggie',
-                data: {url_give:url, comment_give:comment},
+                data: {url_give:url, comment_give:comment, title_give:title, likes_give:likes},
                 success: function (response) {
+
                     alert(response['msg'])
                     window.location.reload()
                 }
@@ -146,13 +201,16 @@
         function close_box() {
             $('#post-box').hide()
         }
+
+
+
     </script>
 </head>
 
 <body>
 <div class="mytitle">
     <h1>브로콜리 너 마저</h1>
-    <button onclick="open_box()">기록하기</button>
+    <button onclick="open_box()">등록하기</button>
 </div>
 <div class="mypost" id="post-box">
     <div class="form-floating mb-3">
@@ -160,16 +218,33 @@
         <label>사진URL</label>
     </div>
 
+    <div class="form-floating mb-2">
+        <input id="title" class="form-control" placeholder="Leave a comment here"></textarea>
+        <label>싫어하는 야채</label>
+    </div>
+
     <div class="form-floating">
         <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
         <label for="floatingTextarea2">코멘트</label>
     </div>
+
+      <div class="form-floating mb-2">
+        <input id="likes" type = "int" class="form-control" placeholder="the number you hate">
+        <label>숫자</label>
+    </div>
+
     <div class="mybtns">
         <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
         <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
     </div>
 </div>
-<div class="mycards">
+
+<div class="top1cards">
+    <div class="row row-cols-1 row-cols-md-1 g-4" id="cards-box2">
+
+    </div>
+</div>
+<div class="othercards">
     <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
 
     </div>
