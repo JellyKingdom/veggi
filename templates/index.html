@@ -12,7 +12,8 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <title>브로콜리 너 마저</title>
+    <title>브로콜리 너 마저...!🥦</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
@@ -93,10 +94,25 @@
         .mybtns > button {
             margin-right: 10px;
         }
+        .card-img-top{
+            width: 100%;
+            height:600px;
+            /*margin: 20px auto 0px auto;*/
+            /*padding: 20px;*/
+        }
+        .card-img-top2{
+            width: 100%;
+            height:300px;
+
+            margin: 0px auto 0px auto;
+            /*padding: auto;*/
+        }
+
     </style>
     <script>
         $(document).ready(function () {
             listing();
+
         });
 
         function sorting() {
@@ -106,7 +122,7 @@
                 type: 'GET',
                 url: '/veggie',
                 data: {},
-                async:false,
+                async: false,
                 success: function (response) {
                     let rows = response['veggie']
                     for (let i = 0; i < rows.length; i++) {
@@ -138,8 +154,9 @@
                         let likes = rows[i]['likes']
                         tmp = sorting();
 
-                        if(tmp== i)
-                        {
+
+
+                        if (tmp == i) {
                             let temp_html2 = `<div class="col">
                                             <div class="card h-100">
                                                 <img src="${image}"
@@ -147,23 +164,28 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">${title}</h5>
                                                     <p class="mycomment">${comment}</p>
-                                                    <p class="mylikes">${likes}</p>
+                                                    <button onclick='thumbs_down("${title}")' type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-hand-thumbs-down"></i>
+                                                        으 싫어🤢${likes}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>`
                             $('#cards-box2').append(temp_html2)
 
-                        }
 
-                        else {
+                        } else {
                             let temp_html = `<div class="col">
                                             <div class="card h-100">
                                                 <img src="${image}"
-                                                     class="card-img-top">
+                                                     class="card-img-top2">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${title}</h5>
                                                     <p class="mycomment">${comment}</p>
-                                                    <p class="mylikes">${likes}</p>
+                                                    <button onclick='thumbs_down("${title}")' type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-hand-thumbs-down"></i>
+                                                        으 싫어🤢${likes}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>`
@@ -179,13 +201,12 @@
             let url = $('#url').val()
             let comment = $('#comment').val()
             let title = $('#title').val()
-            let likes = $('#likes').val()
 
 
             $.ajax({
                 type: 'POST',
                 url: '/veggie',
-                data: {url_give:url, comment_give:comment, title_give:title, likes_give:likes},
+                data: {url_give: url, comment_give: comment, title_give: title},
                 success: function (response) {
 
                     alert(response['msg'])
@@ -203,13 +224,27 @@
         }
 
 
+        function thumbs_down(title) {
+            alert(title)
+
+            $.ajax({
+                type: 'POST',
+                url: '/veggie/likes',
+                data: { title_give: title},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
+        }
+
 
     </script>
 </head>
 
 <body>
 <div class="mytitle">
-    <h1>브로콜리 너 마저</h1>
+    <h1>브로콜리 너 마저...!🥦</h1>
     <button onclick="open_box()">등록하기</button>
 </div>
 <div class="mypost" id="post-box">
@@ -228,10 +263,6 @@
         <label for="floatingTextarea2">코멘트</label>
     </div>
 
-      <div class="form-floating mb-2">
-        <input id="likes" type = "int" class="form-control" placeholder="the number you hate">
-        <label>숫자</label>
-    </div>
 
     <div class="mybtns">
         <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
