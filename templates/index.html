@@ -94,6 +94,20 @@
         .mybtns > button {
             margin-right: 10px;
         }
+        .card-img-top{
+            width: 100%;
+            height:600px;
+            /*margin: 20px auto 0px auto;*/
+            /*padding: 20px;*/
+        }
+        .card-img-top2{
+            width: 100%;
+            height:300px;
+
+            margin: 0px auto 0px auto;
+            /*padding: auto;*/
+        }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -124,7 +138,6 @@
             console.log(index);
             return index
         }
-        let arr = [];
 
         function listing() {
             let tmp;
@@ -165,10 +178,9 @@
                             let temp_html = `<div class="col">
                                             <div class="card h-100">
                                                 <img src="${image}"
-                                                     class="card-img-top">
+                                                     class="card-img-top2">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${title}</h5>
-                                                    arr.push(${title})
                                                     <p class="mycomment">${comment}</p>
                                                     <button onclick='thumbs_down("${title}")' type="button" class="btn btn-outline-danger">
                                                         <i class="bi bi-hand-thumbs-down"></i>
