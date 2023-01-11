@@ -23,7 +23,6 @@ def veggie_post():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
     title_receive = request.form['title_give']
-    likes_receive = request.form['likes_give']
     veggie_list = list(db.veggie.find({}, {'_id': False}))
     for veggie in veggie_list:
         if (title_receive != veggie.get('title')):
