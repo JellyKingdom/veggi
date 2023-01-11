@@ -52,26 +52,21 @@ def veggie_post():
 
     # title = soup.select_one('meta[property="og:title"]')['content']
     # image = soup.select_one('meta[property="og:image"]')['content']
-    likes_receive = int(likes_receive)
 
     doc = {
         'image': url_receive,
         'comment': comment_receive,
         'title': title_2,
-        'likes': likes_receive
+        'likes': 0
     }
     db.veggie.insert_one(doc)
 
-    return jsonify({'msg': '맛없는 야채 투표해주셔서 감사합니다!'})
+    return jsonify({'msg': '당신의 극혐에게 한 표를!😎'})
 
 
 @app.route("/veggie/likes", methods=["POST"])
-
 def likes_post():
-
     title = request.form['title_give']
-
-
     veggie_list = list(db.veggie.find({}, {'_id': False}))
     for veggie in veggie_list:
         if (title == veggie.get('title')):
