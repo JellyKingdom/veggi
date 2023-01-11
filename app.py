@@ -65,6 +65,26 @@ def veggie_post():
     return jsonify({'msg': '맛없는 야채 투표해주셔서 감사합니다!'})
 
 
+@app.route("/veggie/likes", methods=["POST"])
+
+def likes_post():
+
+    title = request.form['title_give']
+
+
+    veggie_list = list(db.veggie.find({}, {'_id': False}))
+    for veggie in veggie_list:
+        if (title == veggie.get('title')):
+            likes = veggie.get('likes') + 1
+            db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
+
+    # print(likes)
+    # db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
+
+    return jsonify({'msg': '연결됐나요?!'})
+
+
+
 @app.route("/veggie", methods=["GET"])
 def veggie_get():
     veggie_list = list(db.veggie.find({}, {'_id': False}))
