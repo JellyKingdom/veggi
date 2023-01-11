@@ -67,7 +67,7 @@ def veggie_post():
 @app.route("/veggie/likes", methods=["POST"])
 def likes_post():
     title = request.form['title_give']
-    veggie_list = list(db.veggie.find({}, {'_id': False}))
+    veggie_list = list(db.veggie.find({}, {'_id': False}).sort('likes', -1))
     for veggie in veggie_list:
         if (title == veggie.get('title')):
             likes = veggie.get('likes') + 1
