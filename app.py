@@ -82,7 +82,7 @@ def likes_post():
 
 @app.route("/veggie", methods=["GET"])
 def veggie_get():
-    veggie_list = list(db.veggie.find({}, {'_id': False})..sort('likes', -1))
+    veggie_list = list(db.veggie.find({}, {'_id': False}).sort('likes', -1))
     return jsonify({'veggie': veggie_list})
 
 
