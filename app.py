@@ -64,7 +64,7 @@ def veggie_post():
 def likes_post():
 
     title = request.form['title_give']
-    # likes = request.form['likes_give']
+
 
     veggie_list = list(db.veggie.find({}, {'_id': False}))
     for veggie in veggie_list:
