@@ -81,7 +81,7 @@ def likes_post():
     # print(likes)
     # db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
 
-    return jsonify({'msg': '연결됐나요?!'})
+    return jsonify({'msg': '투표완료?!'})
 
 
 
