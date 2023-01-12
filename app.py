@@ -31,7 +31,6 @@ def veggie_post():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
     title_receive = request.form['title_give']
-    likes_receive = request.form['likes_give']
 
 
     veggie_list = list(db.veggie.find({}, {'_id': False}))
@@ -39,19 +38,7 @@ def veggie_post():
         if (title_receive != veggie.get('title')):
             title_2 = title_receive
         else:
-            return jsonify({'msg': '중복입니다!'})
-
-
-
-
-    # headers = {
-    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-    # data = requests.get(url_receive, headers=headers)
-
-    # soup = BeautifulSoup(data.text, 'html.parser')
-
-    # title = soup.select_one('meta[property="og:title"]')['content']
-    # image = soup.select_one('meta[property="og:image"]')['content']
+            return jsonify({'msg': '그 야채는 이미 있습니다. 다른 녀석을 미워해주세요'})
 
     doc = {
         'image': url_receive,
@@ -60,8 +47,7 @@ def veggie_post():
         'likes': 0
     }
     db.veggie.insert_one(doc)
-
-    return jsonify({'msg': '당신의 극혐에게 한 표를!😎'})
+    return jsonify({'msg': '불호의 역사를 새로 썼습니다!😎'})
 
 
 @app.route("/veggie/likes", methods=["POST"])
@@ -72,12 +58,7 @@ def likes_post():
         if (title == veggie.get('title')):
             likes = veggie.get('likes') + 1
             db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
-
-    # print(likes)
-    # db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
-
-    return jsonify({'msg': '투표완료?!'})
-
+    return jsonify({'msg': '당신의 극혐에 투표 완료!'})
 
 
 @app.route("/veggie", methods=["GET"])
@@ -86,5 +67,26 @@ def veggie_get():
     return jsonify({'veggie': veggie_list})
 
 
+@app.route("/veggie", methods=["UPDATE"])
+def veggie_update():
+    veggie_list = db.veggie.update_one({'comment': 1}, {'$set': {'comment': '으 브로콜리 싫엉'}})
+    return jsonify({'veggie': veggie_list})
+
+
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
+
+
+@app.route('/broccoli')
+def broccoli():
+    return render_template('broccoli.html')
+
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
