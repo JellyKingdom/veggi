@@ -1,0 +1,44 @@
+:root {
+--text-color: black;
+--backround-color:cadetblue;
+--accent-color: darksalmon;
+}
+
+ * {
+     font-family: 'Sofia Sans Semi Condensed', sans-serif;
+ }
+
+ .navbar{
+        --text-color: white;
+    }
+
+.card-title {
+    color: var(--text-color);
+    font-size: xxx-large;
+}
+
+ .dontask {
+     width: 100%;
+     height: 400px;
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://post-phinf.pstatic.net/MjAxOTA3MjRfMTA2/MDAxNTYzOTM3NzE4OTYw.ooIMmCh46ugf4oxf40D-LW73QijLJo6MGQIy-IEdeCkg.m9iDqH0x1mcPqnhqsFlzga4QQEEPyHsZbp3q6p2B4Icg.JPEG/1.jpg?type=w1200");
+     background-position: center;
+     background-size: cover;
+
+     margin-top: 100px;
+
+     color: white;
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.card-text {
+      color: var(--text-color);
+    font-size: x-large;
+}
+
+.aww{
+    color: var(--accent-color);
+}

@@ -1,0 +1,31 @@
+:root {
+--text-color: black;
+--backround-color:cadetblue;
+--accent-color: darksalmon;
+}
+ * {
+     font-family: 'Sofia Sans Semi Condensed', sans-serif;
+ }
+
+ .navbar{
+        --text-color: white;
+    }
+
+ body {
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    }
+
+ .profile {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding: 50px 0;
+ }
+
+ .row-cols-md-2 {
+     max-width: 600px;
+ }
+
+
+

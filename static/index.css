@@ -1,0 +1,209 @@
+    :root {
+    --text-color: black;
+    --backround-color:cadetblue;
+    --accent-color: darksalmon;
+    }
+
+    * {
+        font-family: 'Gowun Dodum', sans-serif;
+    }
+
+        .mytitle {
+            width: 100%;
+            height: 400px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://src.hidoc.co.kr/image/lib/2021/9/24/1632461260861_0.jpg');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mytitle > button {
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: white;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            margin-top: 10px;
+        }
+
+        .mytitle > button:hover {
+            border: 2px solid white;
+        }
+
+        .mycomment {
+            color: gray;
+        }
+
+        .top1cards {
+            margin: 100px auto 0px auto;
+            width: 80%;
+            height: 50%;
+            max-width: 700px;
+        }
+
+        .othercards {
+            margin: 20px auto 0px auto;
+            width: 70%;
+            max-width: 1200px;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+
+            display: none;
+        }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+
+        .mybtns > button {
+            margin-right: 10px;
+        }
+        .card-img-top{
+            width: 95%;
+            height: 95%;
+            /*margin: 20px auto 0px auto;*/
+            /*padding: 20px;*/
+        }
+        .card-img-top2{
+            width: 80%;
+            height:80%;
+
+            margin: 0px auto 0px auto;
+            /*padding: auto;*/
+        }
+
+        /*이 아래로 새로 추가한 css들*/
+
+    head {
+        font-family: 'Sofia Sans Semi Condensed', sans-serif;
+        color: white;
+    }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #339933;
+            padding: 8px 12px;
+            --text-color: white;
+            margin: 3px 0;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            border: 3px;
+
+        }
+
+        .navbar_logo {
+            font-size: 24px;
+            color: white;
+        }
+
+        .navbar_logo i {
+            color: darksalmon;
+        }
+
+        .navbar_menu {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .navbar_menu li {
+            padding: 10px 30px;
+        }
+
+        .navbar_menu li:hover {
+            background-color: darksalmon;
+            border-radius: 10px;
+        }
+
+        .navbar_icon {
+            list-style: none;
+            color: white;
+            display: flex;
+            padding-left: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar_icon li {
+            padding: 8px 12px;
+        }
+
+        .navbar_toggleBtn {
+            display: none;
+            position: absolute;
+            right: 32px;
+            font-size: 24px;
+            color: darksalmon;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar{
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 24px;
+                /*첫번째 로고는 왼쪽으로 정렬하고 싶고, 이때 중심축은 수직임.
+                우리는 수평에서 얘를 왼쪽에 놓고싶음.
+                그래서 flex-start로 */
+            }
+            .navbar_menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%
+                /*위 navbar에서 align-items로 로고만 수평으로 조절.
+                 이때 변화 없이 여전히 flex-start 지점에 모여있다면,
+                 menu의 width 크기가 작아서 그런거임*/
+            }
+
+            .navbar_menu li{
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar_icon {
+                display: none;
+                justify-content: center;
+                width: 100%;
+                /*이때 width: 100% 해도 중간으로 안 오면 리스트에 기본적용된 padding 때문.
+                navbar-icons 가서 padding-left:0 하면 됨.*/
+            }
+            .navbar_toggleBtn {
+                display: block;
+            }
+
+            .navbar_menu.active,
+            .navbar_icon.active {
+                display: flex;
+            }
+        }
+
+
