@@ -6,16 +6,9 @@ app = Flask(__name__)
 # pymongo import 하는 부분
 from pymongo import MongoClient
 
-# bs4 import 하는 부분
-# from bs4 import BeautifulSoup
-
 # Certifi import 하는 부분 (Port 5000을 사용하기 위해서)
-import certifi
-
-ca = certifi.where()
-
-# request import 하는 부분
-import requests
+# import certifi
+# ca = certifi.where()
 
 # MongoDB client, db 변수 선언
 client = MongoClient('mongodb+srv://test:sparta@cluster0.urgl26q.mongodb.net/Cluster0@?retryWrites=true&w=majority')
@@ -88,5 +81,10 @@ def faq():
     return render_template('faq.html')
 
 
+@app.route('/comingsoon')
+def comingsoon():
+    return render_template('comingsoon.html')
+
+
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
