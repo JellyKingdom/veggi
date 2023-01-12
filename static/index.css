@@ -1,12 +1,12 @@
-    :root {
-    --text-color: black;
-    --backround-color:cadetblue;
+:root {
+    --text-color: #000000;
+    --backround-color: cadetblue;
     --accent-color: darksalmon;
-    }
+}
 
-    * {
-        font-family: 'Gowun Dodum', sans-serif;
-    }
+     * {
+         font-family: 'Sofia Sans Semi Condensed', sans-serif;
+     }
 
         .mytitle {
             width: 100%;
@@ -38,7 +38,7 @@
         }
 
         .mytitle > button:hover {
-            border: 2px solid white;
+            border: 3px solid white;
         }
 
         .mycomment {
@@ -96,11 +96,6 @@
 
         /*이 아래로 새로 추가한 css들*/
 
-    head {
-        font-family: 'Sofia Sans Semi Condensed', sans-serif;
-        color: white;
-    }
-
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -116,7 +111,6 @@
             text-decoration: none;
             color: var(--text-color);
             border: 3px;
-
         }
 
         .navbar_logo {
@@ -150,7 +144,6 @@
             display: flex;
             padding-left: 0;
             margin: 0;
-            padding: 0;
         }
 
         .navbar_icon li {
@@ -164,6 +157,10 @@
             font-size: 24px;
             color: darksalmon;
         }
+
+    /*    body {*/
+    /*font-family: 'Gowun Dodum', sans-serif !important;*/
+    /*        }*/
 
         @media screen and (max-width: 768px) {
             .navbar{
