@@ -60,12 +60,6 @@ def veggie_get():
     return jsonify({'veggie': veggie_list})
 
 
-@app.route("/veggie", methods=["UPDATE"])
-def veggie_update():
-    veggie_list = db.veggie.update_one({'comment': 1}, {'$set': {'comment': '으 브로콜리 싫엉'}})
-    return jsonify({'veggie': veggie_list})
-
-
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
