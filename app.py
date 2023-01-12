@@ -1,8 +1,6 @@
 # flask import 하는 부분
 from flask import Flask, render_template, request, jsonify
-
 app = Flask(__name__)
-
 # pymongo import 하는 부분
 from pymongo import MongoClient
 
@@ -13,24 +11,21 @@ from pymongo import MongoClient
 # MongoDB client, db 변수 선언
 client = MongoClient('mongodb+srv://test:sparta@cluster0.urgl26q.mongodb.net/Cluster0@?retryWrites=true&w=majority')
 db = client.dbsparta
-
 @app.route('/')
 def home():
     return render_template('index.html')
-
-
 @app.route("/veggie", methods=["POST"])
 def veggie_post():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
     title_receive = request.form['title_give']
 
-
     veggie_list = list(db.veggie.find({}, {'_id': False}))
     for veggie in veggie_list:
         if (title_receive != veggie.get('title')):
             title_2 = title_receive
         else:
+
             return jsonify({'msg': '그 야채는 이미 있습니다. 다른 녀석을 미워해주세요'})
 
     doc = {
@@ -40,8 +35,8 @@ def veggie_post():
         'likes': 0
     }
     db.veggie.insert_one(doc)
-    return jsonify({'msg': '불호의 역사를 새로 썼습니다!😎'})
 
+    return jsonify({'msg': '불호의 역사를 새로 썼습니다!😎'})
 
 @app.route("/veggie/likes", methods=["POST"])
 def likes_post():
@@ -51,6 +46,7 @@ def likes_post():
         if (title == veggie.get('title')):
             likes = veggie.get('likes') + 1
             db.veggie.update_one({'title': title}, {'$set': {'likes': int(likes)}})
+
     return jsonify({'msg': '당신의 극혐에 투표 완료!'})
 
 

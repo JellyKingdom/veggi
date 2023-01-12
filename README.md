@@ -43,6 +43,3 @@
 ![](https://velog.velcdn.com/images/liha_engineer/post/c1b691bc-ea6b-4491-80c8-0a2d2d1560cd/image.png)
 
 ![](https://velog.velcdn.com/images/liha_engineer/post/ac07a564-83e5-44da-a658-89724c8dcc70/image.png)
-
-
-
