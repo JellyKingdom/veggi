@@ -1,0 +1,46 @@
+:root {
+--text-color: black;
+--backround-color:cadetblue;
+--accent-color: darksalmon;
+}
+
+ * {
+     font-family: 'Sofia Sans Semi Condensed', sans-serif;
+ }
+
+ .navbar{
+        --text-color: white;
+    }
+
+
+ .broccoli {
+     width: 600px;
+     height: 400px;
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://velog.velcdn.com/images/liha_engineer/post/9680379b-c24a-46e5-ba0d-28f9bd7854eb/image.png");
+     background-position: center;
+     background-size: cover;
+
+     margin: auto;
+     margin-top: 200px;
+
+     color: white;
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.next {
+      color: var(--text-color);
+    font-size: x-large;
+}
+
+.aww {
+    color: var(--accent-color);
+    text-align: center;
+}
+
+.bonobono {
+
+}

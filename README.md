@@ -8,9 +8,9 @@
 
 ## 👥팀원
 `한지윤` :   추천 버튼, 추천 수 DB 저장 <br>
-`김우영` :   데이터 DB, 중복데이터 핸들링, 전반적인 css <br>
+`김우영` :   데이터 DB, 중복데이터 핸들링, 전반적인 CSS <br>
 `이승렬` :   아이디어, sorting, 중복데이터 핸들링, 배포 <br>
-`서리하` :   아이디어, 추천 버튼, sorting <br>
+`서리하` :   아이디어, 추천 버튼, sorting, 메뉴 바 및 반응형 CSS, 각 메뉴별 페이지 <br>
 
 
 ## 🛠️기술 스택
@@ -28,10 +28,18 @@
 - 야채 이름을 이용하여 중복 등록 방지
 - `으 싫어🤢` 버튼으로 투표기능 구현, 투표 수 DB에 저장 
 - 추천수 별 정렬
+- media 쿼리를 사용하여 반응형 메뉴 구현
 
 
 ## 👀View
-<img width="640" alt="등록하기" src="https://user-images.githubusercontent.com/109452831/211733451-5ad7d8ec-db14-46d3-95f5-b342cf728104.png">
-<img width="640" alt="야채리스트" src="https://user-images.githubusercontent.com/109452831/211733462-f4a1e188-5667-4d0f-959e-1d4e0780f4c5.png">
+![](https://velog.velcdn.com/images/liha_engineer/post/49da38e0-e599-41a5-9f58-f4dc2c75d7ac/image.png)
 
+![](https://velog.velcdn.com/images/liha_engineer/post/276dcfa2-6472-4f22-984b-ec01b8d154d5/image.png)
 
+![](https://velog.velcdn.com/images/liha_engineer/post/414d70ea-17b6-4c64-84cd-054c9b0a31a2/image.png)
+
+![](https://velog.velcdn.com/images/liha_engineer/post/6a8fac7a-3f7c-4444-aa01-a01363b118d2/image.png)
+
+![](https://velog.velcdn.com/images/liha_engineer/post/c1b691bc-ea6b-4491-80c8-0a2d2d1560cd/image.png)
+
+![](https://velog.velcdn.com/images/liha_engineer/post/ac07a564-83e5-44da-a658-89724c8dcc70/image.png)

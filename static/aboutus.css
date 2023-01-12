@@ -1,0 +1,35 @@
+:root {
+--text-color: black;
+--backround-color:cadetblue;
+--accent-color: darksalmon;
+}
+
+ *{
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    }
+
+ .navbar{
+        --text-color: white;
+    }
+
+ .profile {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding: 30px 0;
+ }
+
+ .row-cols-md-2 {
+
+     max-width: 800px;
+     display: flex;
+ }
+
+ .card {
+     margin: 20px 20px 0px 20px;
+ }
+
+ .fa-github {
+     font-size: xx-large;
+ }

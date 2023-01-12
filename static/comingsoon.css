@@ -1,0 +1,76 @@
+:root {
+--text-color: black;
+--backround-color:cadetblue;
+--accent-color: darksalmon;
+}
+
+ * {
+     font-family: 'Sofia Sans Semi Condensed', sans-serif;
+ }
+
+ .navbar{
+        --text-color: white;
+    }
+
+ .comingsoon {
+     width: 600px;
+     height: 400px;
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://velog.velcdn.com/images/liha_engineer/post/e14c9ec4-30fb-408c-8211-f314a4337c5d/image.png");
+     background-position: center;
+     background-size: cover;
+
+     margin: auto;
+     margin-top: 50px;
+
+     color: white;
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.aww{
+    color: var(--accent-color);
+}
+
+ .alphago {
+     background-image: url("https://velog.velcdn.com/images/liha_engineer/post/03320125-c98b-48d5-8222-6d72fc6163de/image.png");
+     background-position: center;
+     background-size: cover;
+
+     margin: 20px 100px 50px 50px;
+
+     width: 60%;
+     height: 500px;
+
+     font-size: 50px;
+     text-align: center;
+
+     align-items: center;
+     justify-content: center;
+     float: left;
+     /*왼쪽에 붙여달란 얘기(사진을 여러개 가로로 배치 가능)*/
+
+     overflow-wrap: break-word;
+ }
+
+.bono1 {
+    width: 20%;
+    margin-top:20px;
+    float: left;
+}
+
+.bono2 {
+    width: 30%;
+    margin-top: 20px;
+    float: left;
+}
+
+ .text {
+     margin-top: 100px;
+     text-align: center;
+     color: white;
+     font-weight: bold;
+     font-size: xx-large;
+ }
